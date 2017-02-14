@@ -68,7 +68,7 @@ class App extends Component {
             <div className="uk-container">
               <h3>Jelentkezettek:</h3>
               <div>
-                <table className="uk-table uk-table-striped">
+                <table className="uk-table uk-table-striped uk-table-hover">
                   <caption>
                     Eddig <b>{this.state.rookies.length}</b> ember jelentkezett
                   </caption>

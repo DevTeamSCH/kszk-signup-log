@@ -16,20 +16,30 @@ class App extends Component {
   }
 
   renderRookies() {
-    const rookies = _.map(this.state.rookies, (val, uid) => {
+    let rookies = _.map(this.state.rookies, (val, uid) => {
       return { ...val, uid };
     });
+    rookies = _.uniqBy(rookies, 'mail');
+
     return rookies.map((rookie) => {
-      return (<p key={rookie.uid}>{`${rookie.name}: ${rookie.mail}`}</p>);
+      return (
+        <tr key={rookie.uid}>
+          <td>
+            {rookie.name}
+          </td>
+          <td>
+            {rookie.mail}
+          </td>
+        </tr>);
     });
   }
 
   renderView() {
     if (this.state.rookies.length === 0) {
       return (
-        <div>
-          Loading...
-        </div>
+        <tr>
+          <td>Loading...</td>
+        </tr>
       );
     } else {
       return this.renderRookies();
@@ -55,11 +65,21 @@ class App extends Component {
         </div>
 
         <div className="body">
-          <div id="rolunk" className="uk-section uk-section-primary uk-light">
+          <div id="rolunk" className="uk-section uk-section-default">
             <div className="uk-container">
               <h3>Jelentkezettek:</h3>
               <div>
-                {this.renderView()}
+                <table className="uk-table uk-table-striped">
+                  <thead>
+                    <tr>
+                      <th>Név</th>
+                      <th>Email</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {this.renderView()}
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>

@@ -4,24 +4,23 @@ import _ from 'lodash';
 import './App.css';
 
 class App extends Component {
-  state = { rookies: [] };
+  state = { rookies: [], length: 0 };
   instance = axios.create();
   url = 'https://kszk-signup.firebaseio.com/rookies.json';
 
   componentWillMount() {
     this.instance.get(this.url, { })
     .then(response => {
-      this.setState({ rookies: response.data });
+      let rookies = _.map(response.data, (val, uid) => {
+        return { ...val, uid };
+      });
+      rookies = _.uniqBy(rookies, 'mail');
+      this.setState({ rookies, length: rookies.length });
     });
   }
 
   renderRookies() {
-    let rookies = _.map(this.state.rookies, (val, uid) => {
-      return { ...val, uid };
-    });
-    rookies = _.uniqBy(rookies, 'mail');
-
-    return rookies.map((rookie) => {
+    return this.state.rookies.map((rookie) => {
       return (
         <tr key={rookie.uid}>
           <td>
@@ -70,6 +69,9 @@ class App extends Component {
               <h3>Jelentkezettek:</h3>
               <div>
                 <table className="uk-table uk-table-striped">
+                  <caption>
+                    Eddig <b>{this.state.rookies.length}</b> ember jelentkezett
+                  </caption>
                   <thead>
                     <tr>
                       <th>Név</th>

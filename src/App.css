@@ -1,0 +1,9 @@
+#navbar {
+  z-index: 10000;
+}
+
+#footer {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: center;
+}

@@ -1,0 +1,112 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "uikit@3.0.0-beta.6",
+        "scope": null,
+        "escapedName": "uikit",
+        "name": "uikit",
+        "rawSpec": "3.0.0-beta.6",
+        "spec": "3.0.0-beta.6",
+        "type": "version"
+      },
+      "/home/work/Developings/Github/kszk-signup"
+    ]
+  ],
+  "_from": "uikit@3.0.0-beta.6",
+  "_id": "uikit@3.0.0-beta.6",
+  "_inCache": true,
+  "_location": "/uikit",
+  "_nodeVersion": "4.4.0",
+  "_npmOperationalInternal": {
+    "host": "packages-18-east.internal.npmjs.com",
+    "tmp": "tmp/uikit-3.0.0-beta.6.tgz_1485336117609_0.538298025727272"
+  },
+  "_npmUser": {
+    "name": "saschadube",
+    "email": "sascha.dube@gmail.com"
+  },
+  "_npmVersion": "3.10.2",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "uikit@3.0.0-beta.6",
+    "scope": null,
+    "escapedName": "uikit",
+    "name": "uikit",
+    "rawSpec": "3.0.0-beta.6",
+    "spec": "3.0.0-beta.6",
+    "type": "version"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/uikit/-/uikit-3.0.0-beta.6.tgz",
+  "_shasum": "06d0bb480491b622e4008ddf69296029ef1b27f3",
+  "_shrinkwrap": null,
+  "_spec": "uikit@3.0.0-beta.6",
+  "_where": "/home/work/Developings/Github/kszk-signup",
+  "dependencies": {},
+  "description": "UIkit is a lightweight and modular front-end framework for developing fast and powerful web interfaces.",
+  "devDependencies": {
+    "archiver": "^1.3.0",
+    "buble": "^0.15.1",
+    "buble-loader": "^0.4.0",
+    "clean-css": "^3.4.23",
+    "concat-files": "^0.1.1",
+    "glob": "^7.0.3",
+    "jquery": "^3.1.1",
+    "less": "^2.7.1",
+    "minimist": "^1.2.0",
+    "npm-watch": "^0.1.7",
+    "rollup": "^0.34.13",
+    "rollup-plugin-buble": "^0.15.0",
+    "rollup-plugin-node-resolve": "1.7.0",
+    "uglify-js": "^2.7.3",
+    "webpack": "^2.2.0-rc.3",
+    "webpack-dev-server": "^2.2.0-rc.0"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "06d0bb480491b622e4008ddf69296029ef1b27f3",
+    "tarball": "https://registry.npmjs.org/uikit/-/uikit-3.0.0-beta.6.tgz"
+  },
+  "gitHead": "e51fb1846d080b2d2363e469b1329a7748b20c00",
+  "maintainers": [
+    {
+      "name": "aheinze",
+      "email": "artur@agentejo.com"
+    },
+    {
+      "name": "janschoenherr",
+      "email": "jan@yootheme.com"
+    },
+    {
+      "name": "saschadube",
+      "email": "sascha.dube@gmail.com"
+    }
+  ],
+  "name": "uikit",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "scripts": {
+    "compile": "npm run compile-less && npm run compile-js",
+    "compile-js": "node build/build && node build/all",
+    "compile-less": "mkdir dist & mkdir dist/css & npm run images && npm run compile-less-core && npm run compile-less-theme && node build/less && node build/css-minify",
+    "compile-less-core": "lessc --relative-urls --rootpath=../../src/less/ src/less/uikit.less > dist/css/uikit-core.css",
+    "compile-less-theme": "lessc --relative-urls --rootpath=../../src/less/ src/less/uikit.theme.less > dist/css/uikit.css",
+    "compile-rtl": "npm run compile-less && node build/rtl-before && npm run compile-less && node build/rtl-after",
+    "images": "node build/images",
+    "no-conflict": "node build/no-conflict && node build/css-minify",
+    "prefix": "node build/prefix",
+    "release": "npm run compile && node build/release",
+    "test": "webpack-dev-server --inline --hot && open http://localhost:8080/tests/",
+    "watch": "npm-watch"
+  },
+  "title": "UIkit",
+  "version": "3.0.0-beta.6",
+  "watch": {
+    "compile-js": "src/js/**/*.js",
+    "compile-less": "**/*.less"
+  }
+}

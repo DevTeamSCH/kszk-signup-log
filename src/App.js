@@ -21,6 +21,7 @@ class App extends Component {
 
   renderRookies() {
     return this.state.rookies.map((rookie) => {
+      const interest = _.join(rookie.interest, ', ');
       return (
         <tr key={rookie.uid}>
           <td>
@@ -28,6 +29,9 @@ class App extends Component {
           </td>
           <td>
             {rookie.mail}
+          </td>
+          <td>
+            {interest === '' ? ':(' : interest}
           </td>
         </tr>);
     });
@@ -76,6 +80,7 @@ class App extends Component {
                     <tr>
                       <th>Név</th>
                       <th>Email</th>
+                      <th>Körök</th>
                     </tr>
                   </thead>
                   <tbody>

@@ -11,9 +11,10 @@ class App extends Component {
   componentWillMount() {
     this.instance.get(this.url, { })
     .then(response => {
-      let rookies = _.map(response.data, (val, uid) => {
-        return { ...val, uid };
-      });
+      // let rookies = _.map(response.data, (val, uid) => {
+      //   return { ...val, uid };
+      // });
+      let rookies = Object.values(response.data);
       rookies = _.uniqBy(rookies, 'mail');
       this.setState({ rookies, length: rookies.length });
     });

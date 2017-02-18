@@ -34,6 +34,9 @@ class App extends Component {
           <td>
             {interest === '' ? ':(' : interest}
           </td>
+          <td>
+            {rookie.text === '' ? '-' : rookie.text}
+          </td>
         </tr>);
     });
   }
@@ -82,6 +85,7 @@ class App extends Component {
                       <th>Név</th>
                       <th>Email</th>
                       <th>Körök</th>
+                      <th>Üzenet</th>
                     </tr>
                   </thead>
                   <tbody>
